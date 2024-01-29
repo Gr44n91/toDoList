@@ -1,6 +1,6 @@
 package com.todolist.core.controllers;
 
-import com.todolist.core.dao.entities.TaskEntity;
+
 import com.todolist.core.dto.Task;
 import com.todolist.core.dto.TaskAbstract;
 import com.todolist.core.dto.TaskSinFechaModificacion;
@@ -21,23 +21,23 @@ public class TaskController {
     }
 
     @GetMapping
-    public List<?> getTasks() {
-        return taskService.getTasks();
+    public ResponseEntity<List<?>> getTasks() {
+        return ResponseEntity.ok(taskService.getTasks());
     }
 
     @GetMapping("/{id}")
-    public TaskAbstract getTaskById(@PathVariable Long id) {
-        return taskService.getTaskById(id);
+    public ResponseEntity<TaskAbstract> getTaskById(@PathVariable Long id) {
+        return ResponseEntity.ok(taskService.getTaskById(id));
     }
 
     @PostMapping
-    public TaskSinFechaModificacion saveTask(@RequestBody TaskSinFechaModificacion task) {
-        return taskService.saveTask(task);
+    public ResponseEntity<TaskSinFechaModificacion> saveTask(@RequestBody TaskSinFechaModificacion task) {
+        return ResponseEntity.ok(taskService.saveTask(task));
     }
 
     @PutMapping
-    public Task updateTask(@RequestBody Task task) {
-        return taskService.updateTask(task);
+    public ResponseEntity<Task> updateTask(@RequestBody Task task) {
+        return ResponseEntity.ok(taskService.updateTask(task));
     }
 
     @DeleteMapping("/{id}")
