@@ -24,3 +24,4 @@ Constara de un CRUD sencillo para las tareas.
 - Spring Boot 3.2.2
 - Java 17
 - Maven
+- Base de datos H2 en memoria
