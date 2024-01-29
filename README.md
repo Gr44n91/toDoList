@@ -11,6 +11,7 @@ Constara de un CRUD sencillo para las tareas.
 ## Índice
 * [Funcionalidades del proyecto](#id1)
 * [Tecnologias utilizadas](#id2)
+* [Hoja de ruta](#id3)
 
 ## :hammer:Funcionalidades del proyecto <a name="id1"></a>
 - Alta de tareas
@@ -19,9 +20,18 @@ Constara de un CRUD sencillo para las tareas.
 - Modificar tareaas
 - Eliminar tareas por Id
 
-
 ## Tecnologias Utilizadas<a name="id2"></a>
 - Spring Boot 3.2.2
 - Java 17
 - Maven
 - Base de datos H2 en memoria
+
+## Hoja de ruta<a name="id3"></a>
+- Elaboracion de CRUD basico :heavy_check_mark:
+- Añadir DAO Y DTO :heavy_check_mark:
+- Añadir ResponseEntity :heavy_check_mark:
+- Añadir Controler Advice BadRequest IdNotFound :heavy_check_mark:
+- Añadir DTO para errores
+- Añadir Validaciones con Jakarta 
+- Añadair documentacion con Open Api 
+- Añadir Spring Security 
