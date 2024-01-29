@@ -10,8 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class TaskSinFechaModificacion extends TaskAbstract{
 
+    //validar not null
     private Long id;
     private String descripcion;
+    //validar con codigo min 1 y max 4
     private Integer status;
     private LocalDate fechaCreacion;
 

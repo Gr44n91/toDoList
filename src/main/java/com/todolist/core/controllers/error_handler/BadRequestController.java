@@ -1,5 +1,7 @@
 package com.todolist.core.controllers.error_handler;
 
+import com.todolist.core.dto.BaseErrorResponse;
+import com.todolist.core.dto.ErrorResponse;
 import com.todolist.core.exceptions.IdNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -12,7 +14,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class BadRequestController {
 
     @ExceptionHandler(IdNotFoundException.class)
-    public String handleIdNotFound(IdNotFoundException exception){
-        return exception.getMessage();
+    public BaseErrorResponse handleIdNotFound(IdNotFoundException exception){
+        return ErrorResponse.builder()
+                .message(exception.getMessage())
+                .status((HttpStatus.BAD_REQUEST.name()))
+                .code(HttpStatus.BAD_REQUEST.value())
+                .build();
+
     }
 }

@@ -31,7 +31,7 @@ Constara de un CRUD sencillo para las tareas.
 - Añadir DAO Y DTO :heavy_check_mark:
 - Añadir ResponseEntity :heavy_check_mark:
 - Añadir Controler Advice BadRequest IdNotFound :heavy_check_mark:
-- Añadir DTO para errores
+- Añadir DTO para error IdNotFound :heavy_check_mark:
 - Añadir Validaciones con Jakarta 
 - Añadair documentacion con Open Api 
 - Añadir Spring Security 
