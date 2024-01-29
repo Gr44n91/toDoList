@@ -5,6 +5,7 @@ import com.todolist.core.dao.repositories.ITaskRepository;
 import com.todolist.core.dto.Task;
 import com.todolist.core.dto.TaskAbstract;
 import com.todolist.core.dto.TaskSinFechaModificacion;
+import com.todolist.core.exceptions.IdNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +55,7 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public TaskAbstract getTaskById(Long id) {
-        TaskEntity taskFromDb = taskRepository.findById(id).orElseThrow();
+        TaskEntity taskFromDb = taskRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Tasks"));
         if(taskFromDb.getFechaModificacion() == null) {
             TaskSinFechaModificacion task = new TaskSinFechaModificacion(taskFromDb.getId(), taskFromDb.getDescripcion(), taskFromDb.getStatus(),
                     taskFromDb.getFechaCreacion());
@@ -69,7 +70,7 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public Task updateTask(Task task) {
-        TaskEntity taskFromDb = taskRepository.findById(task.getId()).orElseThrow();
+        TaskEntity taskFromDb = taskRepository.findById(task.getId()).orElseThrow(() -> new IdNotFoundException("Tasks"));
         taskFromDb.setDescripcion(task.getDescripcion());
         taskFromDb.setStatus(task.getStatus());
         taskFromDb.setFechaModificacion(LocalDate.now());
@@ -80,7 +81,7 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public void deleteTaskById(Long id) {
-        TaskEntity taskFromDb = taskRepository.findById(id).orElseThrow();
+        TaskEntity taskFromDb = taskRepository.findById(id).orElseThrow(() -> new IdNotFoundException("Tasks"));
         taskRepository.delete(taskFromDb);
     }
 
