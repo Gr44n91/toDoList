@@ -5,6 +5,7 @@ import com.todolist.core.dto.Task;
 import com.todolist.core.dto.TaskAbstract;
 import com.todolist.core.dto.TaskSinFechaModificacion;
 import com.todolist.core.services.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,12 +32,12 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<TaskSinFechaModificacion> saveTask(@RequestBody TaskSinFechaModificacion task) {
+    public ResponseEntity<TaskSinFechaModificacion> saveTask(@Valid @RequestBody TaskSinFechaModificacion task) {
         return ResponseEntity.ok(taskService.saveTask(task));
     }
 
     @PutMapping
-    public ResponseEntity<Task> updateTask(@RequestBody Task task) {
+    public ResponseEntity<Task> updateTask(@Valid @RequestBody Task task) {
         return ResponseEntity.ok(taskService.updateTask(task));
     }
 
