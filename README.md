@@ -35,5 +35,5 @@ Constara de un CRUD sencillo para las tareas.
 - Añadir Validaciones con Jakarta 
     - POST TaskSinFechaModificacion -> Id: debe se nulo / status: debe ser un numero entre 1 y 4 ambos incluidos y no puede ser nulo
     - PUT Task -> Id: debe ser positivo y no nulo / status: debe ser un numero entre 1 y 4 ambos incluidos y no puede ser nulo
-- Añadair documentacion con Open Api 
+- Añadair documentacion con Open Api :heavy_check_mark:
 - Añadir Spring Security 

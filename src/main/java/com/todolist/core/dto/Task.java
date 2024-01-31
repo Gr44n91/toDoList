@@ -1,9 +1,7 @@
 package com.todolist.core.dto;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +22,10 @@ public class Task extends TaskAbstract{
     @Min(value = 1, message="El codigo de estado debe ser 1,2,3 o 4")
     @Max(value = 4, message="El codigo de estado debe ser 1,2,3 o 4")
     private Integer status;
+    @Null
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDate fechaCreacion;
+    @Null
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     private LocalDate fechaModificacion;
 }

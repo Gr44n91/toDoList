@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class BadRequestController {
-
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(IdNotFoundException.class)
     public BaseErrorResponse handleIdNotFound(IdNotFoundException exception){
         return ErrorResponse.builder()
